@@ -15,6 +15,7 @@ contract Core_Monopoly {
     function registerPlayer(
         string memory name
     ) external returns (PlayerObject.Player memory p, uint256 playerId_) {
+        require(playersCount <8 , "Maximum no Of players Allowed is 8");
         // Check if the address already exists
         bool duplicateAddress = PlayerLogic.checkDuplicateAddress(
             alreadyExistingAddress,
