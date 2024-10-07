@@ -6,5 +6,12 @@ library PropertyObject {
         address propertyOwner;
         uint propertyRent;
         uint propertPrice;
+        PropertyStatus propertyStatus;
+    }
+
+    enum PropertyStatus {
+        Available,
+        ForSale,
+        Owned
     }
 }
