@@ -34,12 +34,12 @@ contract Core_MonopolyTest is Test {
         vm.prank(clientc);
         monopoly.registerPlayer("Ajidokw");
         vm.prank(clientd);
-        monopoly.registerPlayer("Ajidou");
+        monopoly.registerPlayer("Ajidokwu");
         vm.prank(cliente);
-        monopoly.registerPlayer("Ajidu");
+        monopoly.registerPlayer("Ajidou");
         vm.prank(clientf);
         vm.expectRevert("Maximum no Of players Allowed is 8");
-        monopoly.registerPlayer("Ajidu");
+        monopoly.registerPlayer("Ajidunbhjn");
     }
 
     // function testFuzz_SetNumber(uint256 x) public {
