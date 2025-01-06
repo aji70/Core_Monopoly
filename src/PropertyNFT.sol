@@ -5,6 +5,7 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract MonopolyPropertyNFT is ERC721URIStorage, Ownable {
+    address initialAddress = msg.sender;
     uint256 public nextTokenId;
     string[] propertyName;
     string[] colorGroup;
@@ -21,7 +22,10 @@ contract MonopolyPropertyNFT is ERC721URIStorage, Ownable {
     // Mapping tokenId to Property details
     mapping(uint256 => Property) public properties;
 
-    constructor() ERC721("MonopolyPropertyNFT", "MOPN") {
+    constructor()
+        ERC721("MonopolyPropertyNFT", "MOPN")
+        Ownable(initialAddress)
+    {
         propertyName = ["Television", "Narayi", "Highcost", "Barnawa", "Sabo"];
         colorGroup = ["blue", "pink", "Purple", "red", "Green"];
         price = [20, 50, 80, 100, 120];
@@ -55,7 +59,7 @@ contract MonopolyPropertyNFT is ERC721URIStorage, Ownable {
     function getPropertyDetails(
         uint256 tokenId
     ) public view returns (Property memory) {
-        require(_exists(tokenId), "Property does not exist.");
+        // require(_exists(tokenId), "Property does not exist.");
         return properties[tokenId];
     }
 
